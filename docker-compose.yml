@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+  books_api:
+    image: ${DOCKER_REGISTRY-}booksapi
+    build:
+      context: .
+      dockerfile: books_API/Dockerfile
+  webapp:
+    image: ${DOCKER_REGISTRY-}webapp
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+        - "8080:80"
+    volumes:
+        - "./Database:/Database"
