@@ -28,9 +28,9 @@ namespace books_API.Repository
             return await _db.Books.FirstOrDefaultAsync(u => u.Id == id);
         }
 
-        public async Task<Book> GetAsync(string couponName)
+        public async Task<Book> GetAsync(string name)
         {
-            return await _db.Books.FirstOrDefaultAsync(u => u.Name.ToLower() == couponName.ToLower());
+            return await _db.Books.FirstOrDefaultAsync(u => u.Name.ToLower() == name.ToLower());
         }
 
 

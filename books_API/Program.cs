@@ -62,7 +62,7 @@ app.MapPost("/api/book", async (IBookRepository _bookRepo, IMapper _mapper, [Fro
         return Results.BadRequest(response);
     }
 
-    if(_bookRepo.GetAsync(book_DTO.Name.ToLower()) != null)
+    if(_bookRepo.GetAsync(book_DTO.Name).GetAwaiter().GetResult() != null)
     {
         response.ErrorMessages.Add("Book Name already Exists");
         return Results.BadRequest(response);
